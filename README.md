@@ -4,7 +4,7 @@
 
 ## Description
 
-Project Spring with Spring Security for the release of **Spring 3.1.0** ( using Bearer token JWT) since the way to handle it change a bit.
+Project Spring with Spring Security for the release of **Spring 3.1.0** ( using Bearer token JWT) since the way to handle it changed a bit.
 
 Also the project uses:
 

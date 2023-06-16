@@ -1,0 +1,4 @@
+id;username;email;password_hash
+1;admin;admin@local.host;$2a$10$gLIXhIfO1Q6vCp3XNn2V6uxUgqSserck66KgFE/u36ncHpYrb4DwS
+2;user;user@local.host;$2a$10$gLIXhIfO1Q6vCp3XNn2V6uxUgqSserck66KgFE/u36ncHpYrb4DwS
+3;manager;manager@local.host;$2a$10$gLIXhIfO1Q6vCp3XNn2V6uxUgqSserck66KgFE/u36ncHpYrb4DwS

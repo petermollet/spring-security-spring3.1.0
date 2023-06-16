@@ -1,0 +1,103 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1686919108490-1"
+               author="peter (generated)">
+        <createSequence incrementBy="1"
+                        sequenceName="users_seq"
+                        startValue="1000"/>
+    </changeSet>
+    <changeSet id="1686919108490-2"
+               author="peter (generated)">
+        <createTable tableName="roles">
+            <column name="name"
+                    type="VARCHAR(20)">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_roles"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1686919108490-3"
+               author="peter (generated)">
+        <createTable tableName="user_roles">
+            <column name="role_name"
+                    type="VARCHAR(20)">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_user_roles"/>
+            </column>
+            <column name="user_id"
+                    type="BIGINT">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_user_roles"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1686919108490-4"
+               author="peter (generated)">
+        <createTable tableName="users">
+            <column name="id"
+                    type="BIGINT">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_users"/>
+            </column>
+            <column name="username"
+                    type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email"
+                    type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash"
+                    type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1686919108490-5"
+               author="peter (generated)">
+        <addUniqueConstraint columnNames="email"
+                             constraintName="uc_users_email"
+                             tableName="users"/>
+    </changeSet>
+    <changeSet id="1686919108490-6"
+               author="peter (generated)">
+        <addUniqueConstraint columnNames="username"
+                             constraintName="uc_users_username"
+                             tableName="users"/>
+    </changeSet>
+
+
+    <changeSet id="1686919108490-load-data" author="Peter">
+        <loadData tableName="roles" file="db/data/roles.csv" separator=";" />
+        <loadData tableName="users" file="db/data/users.csv" separator=";" />
+        <loadData tableName="user_roles" file="db/data/user_roles.csv" separator=";" />
+    </changeSet>
+
+
+    <changeSet id="1686919108490-7"
+               author="peter (generated)">
+        <addForeignKeyConstraint baseColumnNames="role_name"
+                                 baseTableName="user_roles"
+                                 constraintName="fk_userol_on_role"
+                                 referencedColumnNames="name"
+                                 referencedTableName="roles"/>
+    </changeSet>
+    <changeSet id="1686919108490-8"
+               author="peter (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_roles"
+                                 constraintName="fk_userol_on_user"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+
+</databaseChangeLog>

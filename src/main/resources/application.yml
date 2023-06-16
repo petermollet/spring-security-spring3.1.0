@@ -1,0 +1,17 @@
+application:
+    app:
+        jwtExpirationMs: 864000000
+        jwtSecret: 46294A404D635166546A576E5A7234753778214125442A472D4B615064526755
+
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+    liquibase:
+        enabled: true
+        change-log: classpath:db/db.master-changelog.xml
+
+logging:
+    level:
+      fr.mollet: DEBUG

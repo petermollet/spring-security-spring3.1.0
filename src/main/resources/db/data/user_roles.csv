@@ -1,0 +1,4 @@
+role_name;user_id
+ROLE_ADMIN;1
+ROLE_USER;2
+ROLE_MANAGER;3
